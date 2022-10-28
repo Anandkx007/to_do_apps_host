@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -20,7 +22,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sr#opup3w%m0v8^s@l!ws)9#)6s!s@8*xabgjgduh%23cm^n6u'
+#SECRET_KEY = 'sr#opup3w%m0v8^s@l!ws)9#)6s!s@8*xabgjgduh%23cm^n6u'
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'sr#opup3w%m0v8^s@l!ws)9#)6s!s@8*xabgjgduh%23cm^n6u')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -119,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-import os
+
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
